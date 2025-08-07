@@ -30,9 +30,9 @@ The goal of this project is to demonstrate foundational skills in:
 ---
 
 ## 📁 File Structure
-synapse-configs/
+documents/
 
-└── default/
+└──project-wso2 /
 
 └── api/
 
