@@ -42,8 +42,11 @@ jobs:
           done
           echo "API is up."
 
+      - name: Make test script executable
+        run: chmod +x ./test-api.sh
+
       - name: Run API tests
-        run: bash ./test-api.sh
+        run: ./test-api.sh
 
       - name: Collect container logs (for debugging if needed)
         if: failure()
