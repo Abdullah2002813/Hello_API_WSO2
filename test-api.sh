@@ -1,3 +1,5 @@
+exit 1
+
 #!/bin/bash
 
 # Call the API endpoint
