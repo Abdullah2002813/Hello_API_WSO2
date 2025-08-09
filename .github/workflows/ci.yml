@@ -79,5 +79,6 @@ jobs:
                 }
               }
             }' \
-            "$JIRA_BASE_URL/rest/api/2/issue"  
+            "$JIRA_BASE_URL/rest/api/2/issue"
+#updated workflow  
       
