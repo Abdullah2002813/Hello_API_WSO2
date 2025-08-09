@@ -1,3 +1,4 @@
+[![CI - build & test WSO2 MI API](https://github.com/Abdullah2002813/Hello_API_WSO2/actions/workflows/ci.yml/badge.svg)](https://github.com/Abdullah2002813/Hello_API_WSO2/actions/workflows/ci.yml)
 # Hello World API with WSO2 Micro Integrator
 
 This is a simple **RESTful "Hello World" API** created and deployed using **WSO2 Micro Integrator**, as part of a DevOps learning project.
