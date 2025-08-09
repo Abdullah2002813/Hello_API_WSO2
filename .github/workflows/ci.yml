@@ -43,9 +43,7 @@ jobs:
           echo "API is up."
 
       - name: Run API tests
-        run: |
-          chmod +x ./test-api.sh || true
-          ./test-api.sh
+        run: bash ./test-api.sh
 
       - name: Collect container logs (for debugging if needed)
         if: failure()
