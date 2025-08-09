@@ -1,0 +1,58 @@
+name: CI - build & test WSO2 MI API
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Show files (debug)
+        run: ls -la
+
+      - name: Build Docker image
+        run: |
+          docker build -t hello-api-image .
+
+      - name: Run container (detached)
+        run: |
+          docker run -d --name wso2mi-test -p 8290:8290 hello-api-image
+        # container will run in background
+
+      - name: Wait for API to become available (max ~5 minutes)
+        run: |
+          set -e
+          echo "Waiting for http://localhost:8290/hello ..."
+          n=0
+          until curl -sSf http://localhost:8290/hello > /dev/null; do
+            n=$((n+1))
+            if [ $n -ge 60 ]; then
+              echo "Timed out waiting for API"
+              docker logs wso2mi-test || true
+              exit 1
+            fi
+            echo "Not up yet (attempt $n), sleeping 5s..."
+            sleep 5
+          done
+          echo "API is up."
+
+      - name: Run API tests
+        run: |
+          chmod +x ./test-api.sh || true
+          ./test-api.sh
+
+      - name: Collect container logs (for debugging if needed)
+        if: failure()
+        run: docker logs wso2mi-test || true
+
+      - name: Stop and remove container
+        if: always()
+        run: |
+          docker stop wso2mi-test || true
+          docker rm wso2mi-test || true
