@@ -75,7 +75,7 @@ jobs:
                 "summary": "CI/CD Pipeline Failure: WSO2 MI API Test Failed",
                 "description": "The GitHub Actions workflow failed during API testing. Check logs here: '"${{ github.run_url }}"'",
                 "issuetype": {
-                  "name": "Bug"
+                  "name": "Task"
                 }
               }
             }' \
