@@ -57,3 +57,18 @@ jobs:
         run: |
           docker stop wso2mi-test || true
           docker rm wso2mi-test || true
+
+      - name: Create Jira issue on failure
+        if: failure()
+        uses: atlassian/gajira-create@v2
+        with:
+          email: 'abdullahabdulhameedhu@gmail.com'
+          apiToken: ${{ secrets.JIRA_API_TOKEN }}
+          domain: 'abdullahabdulhameedhu.atlassian.net'
+          project: 'WMIT'
+          issueType: 'Bug'
+          summary: 'CI/CD Pipeline Failure: WSO2 MI API Test Failed'
+          description: |
+            The GitHub Actions workflow failed during API testing.
+            Please check the logs here: ${{ github.run_url }}
+      
