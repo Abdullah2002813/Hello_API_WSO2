@@ -1,4 +1,4 @@
-    name: CI - build & test WSO2 MI API
+name: CI - build & test WSO2 MI API
 
 on:
   push:
