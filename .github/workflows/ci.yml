@@ -60,7 +60,7 @@ jobs:
 
       - name: Create Jira issue on failure
         if: failure()
-        uses: atlassian/gajira-create@v2
+        uses: atlassian/gajira-create@v3
         with:
           email: 'abdullahabdulhameedhu@gmail.com'
           apiToken: ${{ secrets.JIRA_API_TOKEN }}
