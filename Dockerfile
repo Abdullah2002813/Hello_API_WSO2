@@ -5,6 +5,9 @@ WORKDIR /home/wso2mi
 # Install unzip tool
 RUN apt-get update && apt-get install -y unzip && rm -rf /var/lib/apt/lists/*
 
+# install wget
+RUN apk add --no-cache wget unzip
+
 # Copy the Micro Integrator pack
 RUN wget https://github.com/wso2/micro-integrator/releases/download/v4.4.0/wso2mi-4.4.0.zip && \
     unzip wso2mi-4.4.0.zip && rm wso2mi-4.4.0.zip
