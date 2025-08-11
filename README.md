@@ -44,14 +44,15 @@ How to run locally
 
 1. Build the Docker image
 Make sure you have the WSO2 Micro Integrator zip ( wso2mi-4.4.0.zip) and API XML inside the project folder.
- 
+
 2. Run the container
 
 3. Access the API
  Open your browser
    http://localhost:8290/hello
 
-## CI/CD Pipeline (GitHub Actions)
+### CI/CD Pipeline (GitHub Actions
+
 - Builds the Docker image on every push to the main branch.
 - Runs the container and performs API tests automatically.
 - If the tests fail, creates a Jira issue for incident tracking.
@@ -61,27 +62,30 @@ Make sure you have the WSO2 Micro Integrator zip ( wso2mi-4.4.0.zip) and API XML
 
 ---
 
-## Jira Integration
+### Jira Integration
+
 - Uses a GitHub Actions step to create Jira issues on pipeline failure.
 - Requires Jira API token, user email, and base URL configured as GitHub Secrets.
 - Automatically tracks issues with details and links to GitHub workflow run.
 
 ---
 
-## Kubernetes Deployment
+### Kubernetes Deployment
+
 - Docker image is pushed to Docker Hub.
 - Deployment manifests (`deployment.yaml`, `service.yaml`) can be used to deploy WSO2 MI to Kubernetes (Minikube or cloud).
 - Service is exposed via NodePort or port-forwarding for local access.
 
 ---
 
-## Technologies Used
+### Technologies Used
 
 Docker, Kubernetes, Minikube, WSO2 Micro Integrator, GitHub Actions, Jira API, Bash scripting, REST API, XML configuration, Curl
 
 ---
 
-## Skills Demonstrated
+### Skills Demonstrated
+
 - Containerization and orchestration
 - Continuous integration and delivery (CI/CD)
 - Automated testing and validation
@@ -92,7 +96,8 @@ Docker, Kubernetes, Minikube, WSO2 Micro Integrator, GitHub Actions, Jira API, B
 
 ---
 
-## Future Improvements
+### Future Improvements
+
 - Add monitoring tools like Prometheus or Datadog
 - Enhance API complexity and integration scenarios
 - Add Helm charts for better Kubernetes management
@@ -101,7 +106,7 @@ Docker, Kubernetes, Minikube, WSO2 Micro Integrator, GitHub Actions, Jira API, B
 
 ---
 
-## Author
+### Author
 
 Abdullah Abdulhameedhu
 
