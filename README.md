@@ -27,7 +27,7 @@ The goal is to build hands-on experience with DevOps practices while targeting a
 
 This simple RESTful API responds to HTTP GET requests at `/hello` endpoint with a greeting message.
 
-   xml
+   
 <api xmlns="http://ws.apache.org/ns/synapse" name="HelloAPI" context="/hello">
    <resource methods="GET" uri-template="/">
       <inSequence>
