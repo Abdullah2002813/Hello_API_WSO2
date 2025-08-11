@@ -20,6 +20,7 @@ The goal is to build hands-on experience with DevOps practices while targeting a
 - **Monitoring & Notifications**: Pipeline status badges and notifications.
 
 ---
+
 ## Custom API (`HelloAPI.xml`)
 
 A simple REST API deployed in WSO2 MI that returns a greeting message:
@@ -37,37 +38,22 @@ A simple REST API deployed in WSO2 MI that returns a greeting message:
     </resource>
 </api>
 
-How to Run Locally
+How to run locally
 
-
-
-
-
-Build the Docker Image
+1. Build the Docker Image
 Make sure you have the WSO2 Micro Integrator zip (wso2mi-4.4.0.zip) and API XML inside the project folder.
 Run:
-
-
-docker build -t wso2mi-custom 
-
-
-
-Run the Container
+docker build -t wso2mi-custom .
+2. Run the container
 docker run -d --name wso2mi -p 8290:8290 wso2mi-custom
 
 
 
 Access the API
-Open your browser or curl
+Open your browser or curl:
 curl http://localhost:8290/hello
 
-
-
 CI/CD Pipeline (GitHub Actions)
-
-
-
-
 
 Builds the Docker image on every push to the main branch.
 Runs the container and performs API tests automatically.
@@ -75,22 +61,11 @@ If the tests fail, creates a Jira issue for incident tracking.
 Cleans up containers after testing.
 
 
-
-
 Pipeline configuration file is located at .github/workflows/ci-cd-pipeline.yml.
 
 
 
-
-
-
-
-
-
 Jira Integration
-
-
-
 
 
 Uses a GitHub Actions step to create Jira issues on pipeline failure.
@@ -100,16 +75,7 @@ Automatically tracks issues with details and links to GitHub workflow run.
 
 
 
-
-
-
-
-
-
 Kubernetes Deployment
-
-
-
 
 
 Docker image is pushed to Docker Hub.
@@ -118,34 +84,13 @@ Service is exposed via NodePort or port-forwarding for local access.
 
 
 
-
-
-
-
-
-
-
 Technologies Used
-
-
-
-
 
 Docker, Kubernetes, Minikube, WSO2 Micro Integrator, GitHub Actions, Jira API, Bash scripting, REST API, XML configuration, Curl
 
 
 
-
-
-
-
-
-
 Skills Demonstrated
-
-
-
-
 
 Containerization and orchestration
 Continuous integration and delivery (CI/CD)
@@ -157,17 +102,7 @@ Version control and Git workflows
 
 
 
-
-
-
-
-
-
-
 Future Improvements
-
-
-
 
 
 Add monitoring tools like Prometheus or Datadog
@@ -181,21 +116,9 @@ Integrate Infrastructure as Code (Terraform)
 
 
 
-
-
-
-
 Author
 
-
-
-
-
 Abdullah Abdulhameedhu
 
 
-
-
-
-Abdullah Abdulhameedhu
 
