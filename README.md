@@ -23,38 +23,31 @@ The goal is to build hands-on experience with DevOps practices while targeting a
 
 ## Custom API (`HelloAPI.xml`)
 
-A simple REST API deployed in WSO2 MI that returns a greeting message:
+This simple RESTful API responds to HTTP GET requests at `/hello` endpoint with a greeting message.
 
 ```xml
 <api xmlns="http://ws.apache.org/ns/synapse" name="HelloAPI" context="/hello">
-    <resource methods="GET" uri-template="/">
-        <inSequence>
-            <respond>
-                <message>
-                    <text>Hello from WSO2 Micro Integrator!</text>
-                </message>
-            </respond>
-        </inSequence>
-    </resource>
+   <resource methods="GET" uri-template="/">
+      <inSequence>
+         <respond>
+            <message>
+               <text>Hello from WSO2 Micro Integrator!</text>
+            </message>
+         </respond>
+      </inSequence>
+   </resource>
 </api>
 
 How to run locally
 
-1. Build the Docker Image
-Make sure you have the WSO2 Micro Integrator zip (wso2mi-4.4.0.zip) and API XML inside the project folder.
-Run:
-docker build -t wso2mi-custom .
+1. Build the Docker image
+Make sure you have the WSO2 Micro Integrator zip ( wso2mi-4.4.0.zip) and API XML inside the project folder.
+ 
 2. Run the container
-docker run -d --name wso2mi -p 8290:8290 wso2mi-custom
 
-
-
-Access the API
-Open your browser or curl:
-curl http://localhost:8290/hello
-
-
-# Project Overview
+3. Access the API
+ Open your browser
+   http://localhost:8290/hello
 
 ## CI/CD Pipeline (GitHub Actions)
 - Builds the Docker image on every push to the main branch.
