@@ -1,3 +1,5 @@
+[![CI - build & test WSO2 MI API](https://github.com/Abdullah2002813/Hello_API_WSO2/actions/workflows/ci.yml/badge.svg)](https://github.com/Abdullah2002813/Hello_API_WSO2/actions/workflows/ci.yml)
+
 
 # Project 01 - WSO2 Micro Integrator CI/CD Pipeline with Jira Integration & Kubernetes Deployment
 
