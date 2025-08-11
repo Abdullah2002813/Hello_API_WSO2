@@ -1,70 +1,193 @@
-[![CI - build & test WSO2 MI API](https://github.com/Abdullah2002813/Hello_API_WSO2/actions/workflows/ci.yml/badge.svg)](https://github.com/Abdullah2002813/Hello_API_WSO2/actions/workflows/ci.yml)
-# Hello World API with WSO2 Micro Integrator
 
-This is a simple **RESTful "Hello World" API** created and deployed using **WSO2 Micro Integrator**, as part of a DevOps learning project.
+# Project 01 - WSO2 Micro Integrator CI/CD Pipeline with Jira Integration & Kubernetes Deployment
 
-The goal of this project is to demonstrate foundational skills in:
-- API creation
-- Integration platforms
-- Local deployment
-- Version control with Git & GitHub
+## Overview
+
+This project demonstrates a complete DevOps pipeline for deploying a WSO2 Micro Integrator (WSO2 MI) API with continuous integration, automated testing, Jira issue tracking on failures, and deployment to a Kubernetes cluster. 
+
+The goal is to build hands-on experience with DevOps practices while targeting a real-world internship environment at WSO2.
 
 ---
 
-## 🔧 Tech Stack
+## Project Components
 
-- **WSO2 Micro Integrator** (v4.4.0)
-- **XML** for API configuration
-- **Java** (as a requirement for WSO2 MI)
-- **Command Line Interface (CLI)** for local deployment
-- **Git & GitHub** for version control
-
----
-
-## 🚀 What This Project Does
-
-- Defines a basic REST API with a `/hello` endpoint.
-- Returns a JSON response: `"Hello from WSO2 Micro Integrator!"`
-- Deploys and runs the API locally via WSO2 MI.
-- Demonstrates beginner-level DevOps practices: Git initialization, committing, and pushing to GitHub.
+- **WSO2 Micro Integrator**: Lightweight integration runtime for APIs and microservices.
+- **Custom API**: A simple RESTful API defined in XML (`HelloAPI.xml`) deployed on WSO2 MI.
+- **Docker**: Containerized the WSO2 MI with the custom API.
+- **GitHub Actions**: Automated CI/CD pipeline to build, test, and deploy the API.
+- **Jira Integration**: Automatically create Jira issues on pipeline failures.
+- **Kubernetes**: Deployment of the WSO2 MI Docker image to a local Kubernetes cluster (Minikube).
+- **Monitoring & Notifications**: Pipeline status badges and notifications.
 
 ---
+## Custom API (`HelloAPI.xml`)
 
-## 📁 File Structure
-documents/
+A simple REST API deployed in WSO2 MI that returns a greeting message:
 
-└──project-wso2 /
+```xml
+<api xmlns="http://ws.apache.org/ns/synapse" name="HelloAPI" context="/hello">
+    <resource methods="GET" uri-template="/">
+        <inSequence>
+            <respond>
+                <message>
+                    <text>Hello from WSO2 Micro Integrator!</text>
+                </message>
+            </respond>
+        </inSequence>
+    </resource>
+</api>
 
-└── api/
-
-└── HelloAPI.xml   # This is the main API fil
-
----
+How to Run Locally
 
 
-## 📚 What I Learned
 
-- How to create and run an API using WSO2 MI
-- Environment variables like `JAVA_HOME`
-- How to initialize a Git repo and push code to GitHub
-- The role of integration platforms in DevOps
 
----
 
-## 💼 Why This Project?
+Build the Docker Image
+Make sure you have the WSO2 Micro Integrator zip (wso2mi-4.4.0.zip) and API XML inside the project folder.
+Run:
+docker build -t wso2mi-custom 
 
-This project is tailored to match **WSO2’s internship requirements** for undergraduates passionate about:
-- DevOps & SRE
-- SaaS environments
-- CI/CD and automation
-- Cloud platforms and observability
 
----
 
-## 👨‍💻 Author
+Run the Container
+docker run -d --name wso2mi -p 8290:8290 wso2mi-custom
 
-**Abdullah Hameedhu**  
-Aspiring DevOps Engineer | Software Engineering Undergraduate  
-GitHub: [@Abdullah2002813(https://github.com/Abdullah2002813)
 
----
+
+Access the API
+Open your browser or curl
+curl http://localhost:8290/hello
+
+
+
+CI/CD Pipeline (GitHub Actions)
+
+
+
+
+
+Builds the Docker image on every push to the main branch.
+Runs the container and performs API tests automatically.
+If the tests fail, creates a Jira issue for incident tracking.
+Cleans up containers after testing.
+
+
+
+
+Pipeline configuration file is located at .github/workflows/ci-cd-pipeline.yml.
+
+
+
+
+
+
+
+
+
+Jira Integration
+
+
+
+
+
+Uses a GitHub Actions step to create Jira issues on pipeline failure.
+Requires Jira API token, user email, and base URL configured as GitHub Secrets.
+Automatically tracks issues with details and links to GitHub workflow run.
+
+
+
+
+
+
+
+
+
+
+Kubernetes Deployment
+
+
+
+
+
+Docker image is pushed to Docker Hub.
+Deployment manifests (deployment.yaml, service.yaml) can be used to deploy WSO2 MI to Kubernetes (Minikube or cloud).
+Service is exposed via NodePort or port-forwarding for local access.
+
+
+
+
+
+
+
+
+
+
+Technologies Used
+
+
+
+
+
+Docker, Kubernetes, Minikube, WSO2 Micro Integrator, GitHub Actions, Jira API, Bash scripting, REST API, XML configuration, Curl
+
+
+
+
+
+
+
+
+
+Skills Demonstrated
+
+
+
+
+
+Containerization and orchestration
+Continuous integration and delivery (CI/CD)
+Automated testing and validation
+Issue tracking integration with Jira
+Kubernetes deployment and service exposure
+Shell scripting and API testing
+Version control and Git workflows
+
+
+
+
+
+
+
+
+
+
+Future Improvements
+
+
+
+
+
+Add monitoring tools like Prometheus or Datadog
+Enhance API complexity and integration scenarios
+Add Helm charts for better Kubernetes management
+Implement Slack or email notifications for pipeline status
+Integrate Infrastructure as Code (Terraform)
+
+
+
+
+
+
+
+
+
+
+Author
+
+
+
+
+
+Abdullah Abdulhameedhu
+
