@@ -27,7 +27,7 @@ The goal is to build hands-on experience with DevOps practices while targeting a
 
 This simple RESTful API responds to HTTP GET requests at `/hello` endpoint with a greeting message.
 
-```xml
+   xml
 <api xmlns="http://ws.apache.org/ns/synapse" name="HelloAPI" context="/hello">
    <resource methods="GET" uri-template="/">
       <inSequence>
@@ -40,7 +40,7 @@ This simple RESTful API responds to HTTP GET requests at `/hello` endpoint with 
    </resource>
 </api>
 
-How to run locally
+**How to run locally**
 
 1. Build the Docker image
 Make sure you have the WSO2 Micro Integrator zip ( wso2mi-4.4.0.zip) and API XML inside the project folder.
@@ -51,7 +51,7 @@ Make sure you have the WSO2 Micro Integrator zip ( wso2mi-4.4.0.zip) and API XML
  Open your browser
    http://localhost:8290/hello
 
-### CI/CD Pipeline (GitHub Actions
+**## CI/CD Pipeline (GitHub Actions**
 
 - Builds the Docker image on every push to the main branch.
 - Runs the container and performs API tests automatically.
@@ -62,7 +62,7 @@ Make sure you have the WSO2 Micro Integrator zip ( wso2mi-4.4.0.zip) and API XML
 
 ---
 
-### Jira Integration
+**### Jira Integration**
 
 - Uses a GitHub Actions step to create Jira issues on pipeline failure.
 - Requires Jira API token, user email, and base URL configured as GitHub Secrets.
@@ -70,7 +70,7 @@ Make sure you have the WSO2 Micro Integrator zip ( wso2mi-4.4.0.zip) and API XML
 
 ---
 
-### Kubernetes Deployment
+## Kubernetes Deployment
 
 - Docker image is pushed to Docker Hub.
 - Deployment manifests (`deployment.yaml`, `service.yaml`) can be used to deploy WSO2 MI to Kubernetes (Minikube or cloud).
@@ -78,13 +78,13 @@ Make sure you have the WSO2 Micro Integrator zip ( wso2mi-4.4.0.zip) and API XML
 
 ---
 
-### Technologies Used
+## Technologies Used
 
 Docker, Kubernetes, Minikube, WSO2 Micro Integrator, GitHub Actions, Jira API, Bash scripting, REST API, XML configuration, Curl
 
 ---
 
-### Skills Demonstrated
+## Skills Demonstrated
 
 - Containerization and orchestration
 - Continuous integration and delivery (CI/CD)
