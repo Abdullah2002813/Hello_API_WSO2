@@ -58,7 +58,7 @@ Make sure you have the WSO2 Micro Integrator zip ( wso2mi-4.4.0.zip) and API XML
 - If the tests fail, creates a Jira issue for incident tracking.
 - Cleans up containers after testing.
 
-*Pipeline configuration file is located at `.github/workflows/ci-cd-pipeline.yml`.*
+*Pipeline configuration file is located at `.github/workflows/ci.yml`.*
 
 ---
 
