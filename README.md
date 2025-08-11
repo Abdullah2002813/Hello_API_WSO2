@@ -46,6 +46,8 @@ How to Run Locally
 Build the Docker Image
 Make sure you have the WSO2 Micro Integrator zip (wso2mi-4.4.0.zip) and API XML inside the project folder.
 Run:
+
+
 docker build -t wso2mi-custom 
 
 
@@ -184,6 +186,12 @@ Integrate Infrastructure as Code (Terraform)
 
 
 Author
+
+
+
+
+
+Abdullah Abdulhameedhu
 
 
 
